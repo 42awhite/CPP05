@@ -20,6 +20,9 @@ public:
     //getters
     std::string GetName() const;
     int GetGrade();
+    int gradeIncrement();
+    int gradeDecrement();
+
 
     //Clase excepciones
     class GradeTooHighException : public std::exception

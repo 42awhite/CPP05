@@ -13,7 +13,6 @@ Bureaucrat::Bureaucrat(std::string const Name, int Grade) : _Name(Name) {
 		throw(Bureaucrat::GradeTooLowException());
 	else
 		_Grade = Grade;
-
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -22,6 +21,8 @@ Bureaucrat::~Bureaucrat() {
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 	// Copy constructor
+	    _Grade = other._Grade;
+    std::cout << "Bureaucrat copy constructor called." << std::endl;
 }
 
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &other) {
@@ -34,7 +35,7 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &other) {
 		else
 			_Grade = other._Grade;
 	}
-	std::cout << "Animal copy assignment operator called." << std::endl;
+	std::cout << "Bureaucrat copy assignment operator called." << std::endl;
 	return *this;
 }
 
@@ -46,4 +47,27 @@ std::string Bureaucrat::GetName() const{
 int Bureaucrat::GetGrade(){
 	//getter Grade
 	return(_Grade);
+}
+
+int Bureaucrat::gradeDecrement()
+{
+	if (_Grade >= 150)
+		throw(Bureaucrat::GradeTooLowException());
+	else
+		_Grade++;
+}
+
+int Bureaucrat::gradeIncrement()
+{
+	if (_Grade <= 1)
+		throw(Bureaucrat::GradeTooHighException());
+	else
+		_Grade--;
+	
+}
+
+std::ostream&	operator<<(std::ostream &o, const Bureaucrat &fixed) 
+{
+	o << fixed.toFloat();
+	return o;
 }
