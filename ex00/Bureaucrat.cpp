@@ -44,7 +44,7 @@ std::string Bureaucrat::GetName() const{
 	return(_Name);
 }
 
-int Bureaucrat::GetGrade(){
+int Bureaucrat::GetGrade() const{
 	//getter Grade
 	return(_Grade);
 }
@@ -66,8 +66,8 @@ int Bureaucrat::gradeIncrement()
 	
 }
 
-std::ostream&	operator<<(std::ostream &o, const Bureaucrat &fixed) 
+std::ostream&	operator<<(std::ostream &o, const Bureaucrat &Burocrata) 
 {
-	o << fixed.toFloat();
+	o << Burocrata.GetName() << ", bureaucrat grade" << Burocrata.GetGrade();
 	return o;
 }

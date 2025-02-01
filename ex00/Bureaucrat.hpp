@@ -19,7 +19,7 @@ public:
 
     //getters
     std::string GetName() const;
-    int GetGrade();
+    int GetGrade()const;
     int gradeIncrement();
     int gradeDecrement();
 
@@ -43,5 +43,7 @@ public:
 
     };
 };
+
+std::ostream&	operator<<(std::ostream &o, Bureaucrat const &fixed);
 
 #endif // BUREAUCRAT_HPP
