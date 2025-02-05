@@ -1,12 +1,12 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 // Constructor
-Form::Form() : _Name("EnBlanco"), _IsSigned(false), _GradeToSign(150), _GradeToExecute(150) {
+AForm::AForm() : _Name("EnBlanco"), _IsSigned(false), _GradeToSign(150), _GradeToExecute(150) {
 }
 
 // Constructor con parámetros
-Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
 	: _Name(name), _IsSigned(false), _GradeToSign(gradeToSign), _GradeToExecute(gradeToExecute) {
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
@@ -15,16 +15,16 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 }
 
 // Destructor
-Form::~Form() {
+AForm::~AForm() {
 }
 
 // Constructor de copia
-Form::Form(const Form &other) 
+AForm::AForm(const AForm &other) 
     : _Name(other._Name), _IsSigned(other._IsSigned), 
       _GradeToSign(other._GradeToSign), _GradeToExecute(other._GradeToExecute) {}
 
 // Operador de asignación
-Form &Form::operator=(const Form &other) {
+AForm &AForm::operator=(const AForm &other) {
     if (this != &other) {
         _IsSigned = other._IsSigned;
     }
@@ -32,24 +32,24 @@ Form &Form::operator=(const Form &other) {
 }
 
 // Getters
-std::string Form::getName() const { 
+std::string AForm::getName() const { 
 	return _Name; 
 }
 
-bool Form::isSigned() const { 
+bool AForm::isSigned() const { 
 	return _IsSigned; 
 }
 
-int Form::getGradeToSign() const { 
+int AForm::getGradeToSign() const { 
 	return _GradeToSign; 
 }
 
-int Form::getGradeToExecute() const { 
+int AForm::getGradeToExecute() const { 
 	return _GradeToExecute; 
 }
 
 //Función Firma
-void Form::beSigned(const Bureaucrat &bureaucrat)
+void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.GetGrade() > _GradeToSign)
 		throw GradeTooLowException();
@@ -57,10 +57,10 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 }
 
 // Operador de inserción <<
-std::ostream &operator<<(std::ostream &o, const Form &form) {
-    o << "Form: " << form.getName() 
-      << " | Signed: " << (form.isSigned() ? "Yes" : "No") 
-      << " | Grade to sign: " << form.getGradeToSign()
-      << " | Grade to execute: " << form.getGradeToExecute();
+std::ostream &operator<<(std::ostream &o, const AForm &Aform) {
+    o << "AForm: " << Aform.getName() 
+      << " | Signed: " << (Aform.isSigned() ? "Yes" : "No") 
+      << " | Grade to sign: " << Aform.getGradeToSign()
+      << " | Grade to execute: " << Aform.getGradeToExecute();
     return o;
 }
