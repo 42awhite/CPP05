@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
 
 class Bureaucrat {
 
@@ -22,6 +23,10 @@ public:
     int GetGrade()const;
     void gradeIncrement();
     void gradeDecrement();
+
+    //Firma
+    void signForm(Form &form);
+
 
 
     //Clase excepciones

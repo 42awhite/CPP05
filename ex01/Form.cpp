@@ -1,7 +1,8 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // Constructor
-Form::Form() _Name("EnBlanco"), _IsSigned(false), _GradeToSign(150), _GradeToExecute(150) {
+Form::Form() : _Name("EnBlanco"), _IsSigned(false), _GradeToSign(150), _GradeToExecute(150) {
 }
 
 // Constructor con parámetros
@@ -32,7 +33,7 @@ Form &Form::operator=(const Form &other) {
 
 // Getters
 std::string Form::getName() const { 
-	return _name; 
+	return _Name; 
 }
 
 bool Form::isSigned() const { 
@@ -48,7 +49,7 @@ int Form::getGradeToExecute() const {
 }
 
 //Función Firma
-void Form:beSigned(const Bureaucrat &bureaucrat)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.GetGrade() > _GradeToSign)
 		throw GradeTooLowException();

@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
+
+// Declaración adelantada (soluciona el problema de inclusión circular)
+class Bureaucrat;  
 
 class Form {
 private:

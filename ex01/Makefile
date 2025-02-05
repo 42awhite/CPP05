@@ -1,5 +1,5 @@
 NAME = exe_burocratic
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS	= ${SRC:.cpp=.o}
 

@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _Name("") {
 	// Constructor
@@ -63,6 +64,16 @@ void Bureaucrat::gradeIncrement()
 		throw(Bureaucrat::GradeTooHighException());
 	else
 		_Grade--;
+}
+
+void Bureaucrat::signForm(Form &form) {
+    try {
+        form.beSigned(*this);
+        std::cout << _Name << " signed " << form.getName() << std::endl;
+    } catch (std::exception &e) {
+        std::cout << _Name << " couldn’t sign " << form.getName() 
+                  << " because " << e.what() << std::endl;
+    }
 }
 
 std::ostream&	operator<<(std::ostream &o, const Bureaucrat &Burocrata) 
