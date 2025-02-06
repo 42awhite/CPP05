@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _Name("") {
 	// Constructor
@@ -66,12 +66,12 @@ void Bureaucrat::gradeIncrement()
 		_Grade--;
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signAForm(AForm &AForm) {
     try {
-        form.beSigned(*this);
-        std::cout << _Name << " signed " << form.getName() << std::endl;
+        AForm.BeSigned(*this);
+        std::cout << _Name << " signed " << AForm.GetName() << std::endl;
     } catch (std::exception &e) {
-        std::cout << _Name << " couldn’t sign " << form.getName() 
+        std::cout << _Name << " couldn’t sign " << AForm.GetName() 
                   << " because " << e.what() << std::endl;
     }
 }
@@ -80,4 +80,14 @@ std::ostream&	operator<<(std::ostream &o, const Bureaucrat &Burocrata)
 {
 	o << Burocrata.GetName() << ", bureaucrat grade" << Burocrata.GetGrade();
 	return o;
+}
+
+void Bureaucrat::executeAForm(AForm const &AForm) const {
+    try {
+        AForm.Execute(*this);
+        std::cout << this->GetName() << " executed " << AForm.GetName() << std::endl;
+    } catch (std::exception &e) {
+        std::cout << this->GetName() << " couldn't execute " << AForm.GetName()
+                  << " because " << e.what() << std::endl;
+    }
 }

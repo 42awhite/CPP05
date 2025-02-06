@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <string>
-#include "Form.hpp"
+
+#include "AForm.hpp"
 
 class Bureaucrat {
 
@@ -25,7 +26,8 @@ public:
     void gradeDecrement();
 
     //Firma
-    void signForm(Form &form);
+    void signAForm(AForm &Aform);
+    void executeAForm(AForm const &Aform) const;
 
 
 
