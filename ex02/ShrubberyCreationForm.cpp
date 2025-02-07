@@ -34,11 +34,21 @@ void ShrubberyCreationForm::Execute(Bureaucrat const &executor) const {
 
     // Crear el archivo de "arbustos"
     std::ofstream outFile(_target + "_shrubbery");
-    outFile << "ASCII Trees" << std::endl;
-    outFile << "  ^^^" << std::endl;
-    outFile << " ^^^^^" << std::endl;
-    outFile << "^^^^^^^" << std::endl;
-    outFile.close();
+    //std::ofstream outFile(_target + "_shrubbery");
+outFile << "        ASCII Trees" << std::endl;
+outFile << "        ^" << std::endl;
+outFile << "       ^^^" << std::endl;
+outFile << "      ^^^^^" << std::endl;
+outFile << "     ^^^^^^^" << std::endl;
+outFile << "    ^^^^^^^^^" << std::endl;
+outFile << "   ^^^^^^^^^^^" << std::endl;
+outFile << "  ^^^^^^^^^^^^^" << std::endl;
+outFile << " ^^^^^^^^^^^^^^^" << std::endl;
+outFile << "^^^^^^^^^^^^^^^^^" << std::endl;
+outFile << "       |||" << std::endl;
+outFile << "       |||" << std::endl;
+outFile << "       |||" << std::endl;
+outFile.close();
 
     std::cout << "Shrubbery created at " << _target << "_shrubbery" << std::endl;
 }
