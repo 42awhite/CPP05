@@ -39,7 +39,6 @@ int main() {
         std::cout << "\nCASO 4: Signing RobotomyRequestForm and executing:" << std::endl;
         bureaucrat.signAForm(robotomy);  // Firmamos el formulario
         bureaucrat.executeAForm(robotomy);  // Ahora debería ejecutarse correctamente
-        // Salida esperada: "Drilling noises..." seguido de éxito o fallo de la operación
 
         // **Caso 5: Ejecutar PresidentialPardonForm (debe fallar si no está firmado)**
         std::cout << "\n CASO 5: Testing PresidentialPardonForm (no firmado):" << std::endl;
@@ -61,10 +60,13 @@ int main() {
         // **Caso 7: Crear un Bureaucrat con grado suficiente para ejecutar y probar el formulario**
         std::cout << "\n CASO 7: Testing with Bureaucrat of grade 25:" << std::endl;
         Bureaucrat bureaucrat2("Alice", 5);  // Crear un Bureaucrat con grado 5 (suficiente para ejecutar)
+        bureaucrat2.signAForm(pardon);
         bureaucrat2.executeAForm(pardon);
         // Salida esperada: "Bob has been pardoned by Zaphod Beeblebrox."
 
-    } catch (std::exception &e) {
+    } 
+    catch (std::exception &e) 
+    {
         std::cerr << e.what() << std::endl;  // Captura excepciones generales
     }
 

@@ -27,8 +27,6 @@ public:
     //Firma
     void signForm(Form &form);
 
-
-
     //Clase excepciones
     class GradeTooHighException : public std::exception
     {

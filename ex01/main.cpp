@@ -9,13 +9,12 @@
 
 int main() {
     try {
-        Bureaucrat intern("Intern", 150);
+        Bureaucrat intern("Pringao", 150);
         Form contract("Top Secret Contract", 50, 10);
 
         std::cout << contract << std::endl;
 
-        // Intern intenta firmar (debería fallar)
-        std::cout << "Intern intenta firmar el contrato..." << std::endl;
+        std::cout << "Pringao intenta firmar el contrato..." << std::endl;
         intern.signForm(contract);
 
     } catch (std::exception &e) {
@@ -28,7 +27,6 @@ int main() {
         Bureaucrat boss("Boss", 1);
         Form contract("Top Secret Contract", 50, 10);
 
-        // Boss firma el contrato correctamente
         std::cout << "Boss firma el contrato..." << std::endl;
         boss.signForm(contract);
         std::cout << contract << std::endl;

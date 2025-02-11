@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-// Declaración adelantada para evitar inclusión circular
 class Bureaucrat;
 
 class AForm {
@@ -28,7 +27,7 @@ public:
     int GetGradeToSign() const;
     int GetGradeToExecute() const;
 
-    // Función para que un Bureaucrat firme el AForm
+    // Función para que un Bureaucrat firme y ejecute el AForm
     void BeSigned(const Bureaucrat &bureaucrat);
     virtual void Execute(Bureaucrat const &executor) const = 0; // Método virtual puro
 
@@ -58,4 +57,4 @@ public:
 
 std::ostream &operator<<(std::ostream &o, const AForm &Aform);
 
-#endif // AFORM_HPP
+#endif

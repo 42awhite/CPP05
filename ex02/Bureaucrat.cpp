@@ -1,13 +1,13 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
+// Constructor
 Bureaucrat::Bureaucrat() : _Name("") {
-	// Constructor
 	_Grade = 150;
 }
 
+// Constructor
 Bureaucrat::Bureaucrat(std::string const Name, int Grade) : _Name(Name) {
-	// Constructor
 	if (Grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
 	if (Grade > 150)
@@ -16,18 +16,18 @@ Bureaucrat::Bureaucrat(std::string const Name, int Grade) : _Name(Name) {
 		_Grade = Grade;
 }
 
+// Destructor
 Bureaucrat::~Bureaucrat() {
-	// Destructor
 }
 
+// Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _Name(other._Name) {
-	// Copy constructor
 	    _Grade = other._Grade;
     std::cout << "Bureaucrat copy constructor called." << std::endl;
 }
 
+// Copy assignment operator
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &other) {
-	// Copy assignment operator
 	if (this != &other) {
 		if (other._Grade < 1)
 			throw (Bureaucrat::GradeTooHighException());
@@ -40,13 +40,13 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &other) {
 	return *this;
 }
 
+//Getter name
 std::string Bureaucrat::GetName() const{
-	//Getter name
 	return(_Name);
 }
 
+//getter Grade
 int Bureaucrat::GetGrade() const{
-	//getter Grade
 	return(_Grade);
 }
 

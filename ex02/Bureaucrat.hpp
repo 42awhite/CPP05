@@ -29,8 +29,6 @@ public:
     void signAForm(AForm &Aform);
     void executeAForm(AForm const &Aform) const;
 
-
-
     //Clase excepciones
     class GradeTooHighException : public std::exception
     {
@@ -53,4 +51,4 @@ public:
 
 std::ostream&	operator<<(std::ostream &o, Bureaucrat const &fixed);
 
-#endif // BUREAUCRAT_HPP
+#endif 

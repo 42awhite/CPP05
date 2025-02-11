@@ -67,6 +67,6 @@ void Bureaucrat::gradeIncrement()
 
 std::ostream&	operator<<(std::ostream &o, const Bureaucrat &Burocrata) 
 {
-	o << Burocrata.GetName() << ", bureaucrat grade" << Burocrata.GetGrade();
+	o << Burocrata.GetName() << ", bureaucrat grade " << Burocrata.GetGrade();
 	return o;
 }

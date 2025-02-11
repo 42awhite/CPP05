@@ -18,7 +18,7 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		Bureaucrat test("Samu", 10);
+		Bureaucrat test("Pepe", 10);
 
 		std::cout << test << std::endl;
 		test.gradeIncrement();
@@ -33,7 +33,7 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		Bureaucrat test("Clara", 150);
+		Bureaucrat test("Luci", 150);
 	
 		std::cout << test << std::endl;
 		test.gradeDecrement();
