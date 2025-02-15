@@ -18,7 +18,7 @@ int main() {
         intern.signForm(contract);
 
     } catch (std::exception &e) {
-        std::cerr << "Error al firmar: " << e.what() << std::endl;
+        std::cerr << "Error en las reglas: " << e.what() << std::endl;
     }
 
     std::cout << std::endl;
@@ -32,11 +32,10 @@ int main() {
         std::cout << contract << std::endl;
 
     } catch (std::exception &e) {
-        std::cerr << "Error al firmar: " << e.what() << std::endl;
+        std::cerr << "Error en las reglas: " << e.what() << std::endl;
     }
 
     return 0;
 }
-
 
 

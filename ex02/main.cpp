@@ -6,51 +6,50 @@
 int main() {
     try {
         // Crear un Bureaucrat con grado 50
-        Bureaucrat bureaucrat("John", 50);
+        Bureaucrat bureaucrat("John", 40);
 
         // Crear instancias de formularios con diferentes targets
         ShrubberyCreationForm shrubbery(".");
-        RobotomyRequestForm robotomy("Alice");
+        RobotomyRequestForm robotomy("Bender");
         PresidentialPardonForm pardon("Bob");
 
         // **Caso 1: Ejecutar ShrubberyCreationForm (debe fallar si no está firmado)**
         std::cout << "CASO 1: Testing ShrubberyCreationForm (no firmado):" << std::endl;
         try {
-            bureaucrat.executeAForm(shrubbery);  // Aquí fallará porque el formulario no está firmado
+            bureaucrat.executeAForm(shrubbery); 
         } catch (std::exception &e) {
-            std::cerr << "Error: " << e.what() << std::endl;  // Debe imprimir error sobre formulario no firmado
+            std::cerr << "Error: " << e.what() << std::endl; 
         }
 
         // **Caso 2: Firmar ShrubberyCreationForm y luego ejecutarlo**
         std::cout << "\n CASO 2: Signing ShrubberyCreationForm and executing:" << std::endl;
-        bureaucrat.signAForm(shrubbery);  // Firmamos el formulario
-        bureaucrat.executeAForm(shrubbery);  // Ahora debería ejecutarse correctamente
-        // Salida esperada: "Shrubbery created at Home_shrubbery"
+        bureaucrat.signAForm(shrubbery);
+        bureaucrat.executeAForm(shrubbery);
 
         // **Caso 3: Ejecutar RobotomyRequestForm (debe fallar si no está firmado)**
         std::cout << "\n CASO 3: Testing RobotomyRequestForm (no firmado):" << std::endl;
         try {
-            bureaucrat.executeAForm(robotomy);  // Aquí fallará si no está firmado
+            bureaucrat.executeAForm(robotomy); 
         } catch (std::exception &e) {
-            std::cerr << "Error: " << e.what() << std::endl;  // Error por formulario no firmado
+            std::cerr << "Error: " << e.what() << std::endl; 
         }
 
         // **Caso 4: Firmar RobotomyRequestForm y luego ejecutarlo**
         std::cout << "\nCASO 4: Signing RobotomyRequestForm and executing:" << std::endl;
-        bureaucrat.signAForm(robotomy);  // Firmamos el formulario
-        bureaucrat.executeAForm(robotomy);  // Ahora debería ejecutarse correctamente
+        bureaucrat.signAForm(robotomy);
+        bureaucrat.executeAForm(robotomy);
 
         // **Caso 5: Ejecutar PresidentialPardonForm (debe fallar si no está firmado)**
         std::cout << "\n CASO 5: Testing PresidentialPardonForm (no firmado):" << std::endl;
         try {
-            bureaucrat.executeAForm(pardon);  // Fallará porque no está firmado
+            bureaucrat.executeAForm(pardon);
         } catch (std::exception &e) {
-            std::cerr << "Error: " << e.what() << std::endl;  // Error por formulario no firmado
+            std::cerr << "Error: " << e.what() << std::endl; 
         }
 
         // **Caso 6: Firmar PresidentialPardonForm y ejecutarlo (sin el grado necesario)**
         std::cout << "\n CASO 6: Signing PresidentialPardonForm and executing (without enough grade):" << std::endl;
-        bureaucrat.signAForm(pardon);  // Firmamos el formulario
+        bureaucrat.signAForm(pardon);
         try {
             bureaucrat.executeAForm(pardon);
         } catch (std::exception &e) {
@@ -58,12 +57,10 @@ int main() {
         }
 
         // **Caso 7: Crear un Bureaucrat con grado suficiente para ejecutar y probar el formulario**
-        std::cout << "\n CASO 7: Testing with Bureaucrat of grade 25:" << std::endl;
-        Bureaucrat bureaucrat2("Alice", 5);  // Crear un Bureaucrat con grado 5 (suficiente para ejecutar)
+        std::cout << "\n CASO 7: Testing with Bureaucrat of grade 5:" << std::endl;
+        Bureaucrat bureaucrat2("Alice", 5); 
         bureaucrat2.signAForm(pardon);
         bureaucrat2.executeAForm(pardon);
-        // Salida esperada: "Bob has been pardoned by Zaphod Beeblebrox."
-
     } 
     catch (std::exception &e) 
     {
